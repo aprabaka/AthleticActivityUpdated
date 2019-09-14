@@ -15,7 +15,7 @@ csvData = [['x', 'y', 'z', 'speed']]
 x = 0
 lastD = 0
 lastT = None
-for n in root[0][0][1][7]: #x, y, x
+for n in root[0][0][1][7]: #x, y, z, speed
 
     if lastT == None:
         csvData.append([n[1][0].text, n[1][1].text, n[2].text, '0'])
@@ -31,9 +31,6 @@ for n in root[0][0][1][7]: #x, y, x
         
         speed = round(DDif / TDif, 2)
         csvData.append([n[1][0].text, n[1][1].text, n[2].text, str(speed)])
-    x += 1
-    if x == 3:
-        break
 import csv
 
 with open('route.csv', 'w', newline='') as csvFile:
